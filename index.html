@@ -5,15 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <h1>Captions</h1>
     <video width="320" height="240" controls>
         <source src="./captions/remove-stains.mp4" type="video/mp4">
-        <track src="./captions/remove-stains.srt" label="English" kind="captions" srclang="en-us" default >
+        <track src="./captions/remove-stains.srt"  label="English" kind="captions" srclang="en-us" default >
         Your browser does not support the video tag.
     </video>
-    <div id="chapters"></div>
+    <button type="button" id="captions">Get chapters and Captions!</button>
+    <p id="chapters"></p>
     <script src="./index.js"></script>
 </body>
 </html>

@@ -1,65 +1,28 @@
-const axios = require("axios"); 
-const fs = require("fs")
-const { writeCaptions } = require('./utils/write');
-const refreshInterval = 5000
 let chapters = document.querySelector("#chapters")
+let captions = document.querySelector("#captions")
 
- const assemblyUpload = axios.create({
-    baseURL: "https://api.assemblyai.com/v2",
-    headers: {
-        authorization: "d3ea1c6ea69346818666761fd6495ada",
-        "content-type": "application/json",
-        "transfer-encoding": "chunked",
-    },
-    maxContentLength: Infinity,
-    maxBodyLength: Infinity,
-});
+const getCaptions = async() => {
+  console.log("clicked")
+  try {
+    const results = await fetch('http://localhost:8000')
+    if (!results.ok) {
+      throw new Error('something went wrong!');
+    }
 
-const file = "./captions/remove-stains.mp4";
+    const { chapters } = await results.json()
+    console.log(chapters)
 
-fs.readFile(file, (err, data) => {
-    if (err) return console.error(err);
 
-    assemblyUpload
-        .post("/upload", data)
-        .then((res) => {
-            const assembly = axios.create({ baseURL: "https://api.assemblyai.com/v2",
-                headers: {
-                    authorization: "d3ea1c6ea69346818666761fd6495ada",
-                    "content-type": "application/json",
-                },
-                maxContentLength: Infinity,
-                maxBodyLength: Infinity
-            });
+    chapters.innerHTML = "Test"
+/* 
+    chapters.innerHTML = chapters.map(item => {
 
-            const getTranscript = async () => {
-                // Sends the audio file to AssemblyAI for transcription
-                const response = await assembly.post("/transcript", {
-                    audio_url: res.data.upload_url,
-                    auto_chapters: true
-                })
-            
-                // Interval for checking transcript completion
-                const checkCompletionInterval = setInterval(async () => {
-                    const transcript = await assembly.get(`/transcript/${response.data.id}`)
-                    const transcriptStatus = transcript.data.status
-                
-                    if (transcriptStatus !== "completed") {
+      //return `Title: ${item.gist}<br>Headline: ${item.headline}<br>Summary: ${item.summary}<br>`
+    }).join("") */
 
-                    console.log(`Transcript Status: ${transcriptStatus}`)
+  } catch(err) {
+    console.error(err);
+  }
+}
 
-                    } else if (transcriptStatus === "completed") {
-                    console.log(transcript.data.chapters)
-                    const summary = transcript.data.chapters
-                    chapters.innerHTML = summary.map()
-                    const results = await assembly.get(`/transcript/${response.data.id}/srt`)
-                    const captions = results.data
-                    writeCaptions(captions)
-                    clearInterval(checkCompletionInterval)
-                    }
-                }, refreshInterval)
-            }  
-            getTranscript() 
-        })
-        .catch((err) => console.error(err));
-}); 
+captions.addEventListener("click", getCaptions)
