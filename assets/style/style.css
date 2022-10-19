@@ -1,5 +1,5 @@
 body {
-  background-color: rgba(0, 0, 0, 0.927);
+  background-color: #09032F;
 }
 
 #chapters {
@@ -56,14 +56,14 @@ body {
   font-family: 'Staatliches', cursive;
   font-weight: 900;
   font-size: 70px;
-  color: rgb(159, 26, 26);
+  color: #566DE8;
   text-align: center;
 }
 
 video {
   border: 15px;
   border-style: double;
-  border-color: rgb(159, 26, 26);
+  border-color: #566DE8;
 }
 
 #subtitles {
