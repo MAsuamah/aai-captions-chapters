@@ -1,1 +1,1 @@
-# aai-captions-chapters
+# Assembly AI Captions and Auto Chapters Demo
