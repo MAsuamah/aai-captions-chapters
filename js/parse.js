@@ -11,13 +11,6 @@ function parse_timestamp(s) {
     return seconds + 60 * minutes + 60 * 60 * hours;
 }
 
-// https://w3c.github.io/webvtt/
-// https://developer.mozilla.org/en/docs/Web/API/Web_Video_Text_Tracks_Format
-// https://en.wikipedia.org/wiki/WebVTT
-//
-// For better parsers, look at:
-// https://github.com/annevk/webvtt
-// https://github.com/mozilla/vtt.js
 function quick_and_dirty_vtt_or_srt_parser(vtt) {
     var lines = vtt.trim().replace('\r\n', '\n').split(/[\r\n]/).map(function(line) {
         return line.trim();
