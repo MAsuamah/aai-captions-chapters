@@ -1,9 +1,9 @@
 body {
-  color: black;
+  background-color: rgba(0, 0, 0, 0.927);
 }
 
 #chapters {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 #captions {
@@ -34,14 +34,39 @@ body {
 }
 
 #summary {
-  height: 300px;
+  border: 15px;
+  border-color: white;
+  border-style: double;
+  color: white;
+  height: 370px;
   max-height: 100%;
   overflow-y: auto !important;
 }
-
-
 #bold-sum {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
+}
+
+.row {
+  margin-top: 80px;
+  width: 100%;
+}
+
+.header {
+  font-family: 'Staatliches', cursive;
+  font-weight: 900;
+  font-size: 70px;
+  color: rgb(159, 26, 26);
+  text-align: center;
+}
+
+video {
+  border: 15px;
+  border-style: double;
+  border-color: rgb(159, 26, 26);
+}
+
+#subtitles {
+  color: white;
 }
 
