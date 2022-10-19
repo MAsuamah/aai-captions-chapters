@@ -1,28 +1,23 @@
-let chapters = document.querySelector("#chapters")
+let summary = document.querySelector("#summary")
 let captions = document.querySelector("#captions")
 
-const getCaptions = async() => {
-  console.log("clicked")
-  try {
-    const results = await fetch('http://localhost:8000')
-    if (!results.ok) {
-      throw new Error('something went wrong!');
+const getCaptions = () => {
+  console.log("clicked") 
+  fetch('http://localhost:8000')
+  .then(response => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      return Promise.reject(response);
     }
+  }).then(function (data) {
 
-    const { chapters } = await results.json()
-    console.log(chapters)
+    const { chapters } = data
 
-
-    chapters.innerHTML = "Test"
-/* 
-    chapters.innerHTML = chapters.map(item => {
-
-      //return `Title: ${item.gist}<br>Headline: ${item.headline}<br>Summary: ${item.summary}<br>`
-    }).join("") */
-
-  } catch(err) {
-    console.error(err);
-  }
-}
+    summary.innerHTML = chapters.map(item => {
+      return `<p id="title">${item.gist}</p><p id="headline">${item.headline}</p><p id="summary"><span id="bold-sum">Summary:</span> ${item.summary}</p>`
+    }).join("")
+  })
+};
 
 captions.addEventListener("click", getCaptions)

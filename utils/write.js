@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const writeCaptions = fileContent => {
   return new Promise((resolve, reject) => {
-    fs.writeFile('./captions/remove-stains.srt', fileContent, err => {
+    fs.writeFile('./captions/remove-stains.vtt', fileContent, err => {
       if (err) {
         reject(err);
         return;

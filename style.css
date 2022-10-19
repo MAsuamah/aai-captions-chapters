@@ -1,4 +1,44 @@
+body {
+  color: black;
+}
+
 #chapters {
-    color: green;
     font-size: 25px;
 }
+
+#video {
+    float: right;
+}
+
+#captions {
+  border: none;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  margin-left: 190px;
+  margin-top: 15px;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+#title{
+  font-family: 'Staatliches', cursive;
+  font-size: 50px;
+}
+
+#headline{
+  font-family: 'Roboto', sans-serif;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+#summary {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+}
+
+#bold-sum {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
