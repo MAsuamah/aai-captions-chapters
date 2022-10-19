@@ -6,10 +6,6 @@ body {
     font-size: 25px;
 }
 
-#video {
-    float: right;
-}
-
 #captions {
   border: none;
   font-size: 40px;
@@ -23,19 +19,26 @@ body {
 
 #title{
   font-family: 'Staatliches', cursive;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 #headline{
   font-family: 'Roboto', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bolder;
 }
 
-#summary {
+#summ {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
 }
+
+#summary {
+  height: 300px;
+  max-height: 100%;
+  overflow-y: auto !important;
+}
+
 
 #bold-sum {
   font-family: 'Roboto', sans-serif;
