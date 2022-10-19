@@ -70,3 +70,7 @@ video {
   color: white;
 }
 
+#pad-row {
+  padding-left: 3em;
+  padding-right: 2em;
+}
